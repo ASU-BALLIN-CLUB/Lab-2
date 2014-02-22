@@ -1,0 +1,41 @@
+void print_line(char line[], char source_name_to_print[], char date_to_print[])
+{
+    char save_ch;
+    char *save_chp = NULL;
+    static int line_count = MAX_LINES_PER_PAGE;
+    
+    if (++line_count > MAX_LINES_PER_PAGE)
+    {
+        print_page_header(source_name_to_print[], date_to_print[]);
+    }
+    if (strlen(line) > MAX_PRINT_LINE_LENGTH) 
+    {
+	line.substr(0, MAX_PRINT_LINE_LENGTH)
+	
+    }
+    if (save_chp)
+    {
+        /* Missing Code Here */
+    }
+    /* Missing Code Here */
+    if (save_chp)
+    {
+        /* Missing Code Here */
+    }
+}// Half of Print_line function so far...
+BOOLEAN get_source_line(FILE *src_file, char src_name[], char todays_date[])
+{
+    char print_buffer[MAX_SOURCE_LINE_LENGTH + 9];
+    char source_buffer[MAX_SOURCE_LINE_LENGTH];
+    static int line_number = 0;
+    
+    if (!feof(src_file)) //This is missing a condition
+    {
+	fgets (source_buffer, MAX_SOURCE_LINE_LENGTH, src_file );
+        return (TRUE);
+    }
+    else
+    {
+        return (FALSE);
+    }
+}// half/almost completed Get source line function...
