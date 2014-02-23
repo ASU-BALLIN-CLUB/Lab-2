@@ -8,14 +8,14 @@ int main (int argc, const char *argv[])
     char source_name[MAX_FILE_NAME_LENGTH];
     char date[DATE_STRING_LENGTH];
     
-    init_lister(argv[1], source_name[MAX_FILE_NAME_LENGTH], date);		# passes argv1 into init_lister
+    init_lister(argv[1], source_name[MAX_FILE_NAME_LENGTH], date);	// passes argv1 into init_lister
     
     
-    while (line_count < MAX_LINES_PER_PAGE)		# Main while loop for calling get_source_line
+    while (line_count < MAX_LINES_PER_PAGE)	// Main while loop for calling get_source_line
     {
-    	get_source_line(argv[1], source_name, date)
+    	get_source_line(argv[1], source_name, date);
     	
-    	line_count++;					# Increments line count.
+    	line_count++;	// Increments the line count.
     	
     }
     
@@ -55,6 +55,9 @@ static void print_page_header(char source_name[], char date[]);
 
 void print_line(char line[], char source_name_to_print[], char date_to_print[])
 {
+    // sets instance variables for the print_line function,
+    // save_ch for the characters to be printed,
+    // save_chp pointer for the extra rounded off characters.
     char save_ch;
     char *save_chp = NULL;
     static int line_count = MAX_LINES_PER_PAGE;
@@ -63,18 +66,27 @@ void print_line(char line[], char source_name_to_print[], char date_to_print[])
     {
         print_page_header(source_name_to_print[], date_to_print[]);
     }
+    
     if (strlen(line) > MAX_PRINT_LINE_LENGTH)
     {
-        line.substr(0, MAX_PRINT_LINE_LENGTH)
+    	// Truncates the string to the max length
+        save_ch = line.substr(0, MAX_PRINT_LINE_LENGTH)
+        
+        // printf(print out the save_ch) not finished yet.
+        
+        // Sets save_chp to the extra characters past the max length.
+        save_chp = line.substr(MAX_PRINT_LINE_LENGTH, 99999); 
         
     }
-    if (save_chp)
+    if (save_chp != NULL)
     {
-        /* Missing Code Here */
+        // Print out the rest of the extra characters
+        // printf(save_chp)
     }
     /* Missing Code Here */
-    if (save_chp)
+    if (save_chp = NULL)
     {
+    	// Continue on with code at this point?
         /* Missing Code Here */
     }
 }// Half of Print_line function so far...
