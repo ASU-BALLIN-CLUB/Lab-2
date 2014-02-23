@@ -38,16 +38,19 @@ BOOLEAN get_source_line(FILE *src_file, char src_name[], char todays_date[])
     char source_buffer[MAX_SOURCE_LINE_LENGTH];
     static int line_number = 0;
     
-    if (1) //This is missing a condition
+    if (fgets (source_buffer, MAX_SOURCE_LINE_LENGTH, src_file )!=NULL) //This is missing a condition
     {
-		/*  Missing Code Here */
+	int n;
+	n=sprintf(print_buffer, "%d."+source_buffer, line_number);
+	line_number++;
+	printline(print_buffer)
         return (TRUE);
     }
     else
     {
         return (FALSE);
     }
-}
+}// half/almost completed Get source line function...
 
 
 static void print_page_header(char source_name[], char date[]);
