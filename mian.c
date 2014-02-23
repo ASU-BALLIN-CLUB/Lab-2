@@ -8,7 +8,17 @@ int main (int argc, const char *argv[])
     char source_name[MAX_FILE_NAME_LENGTH];
     char date[DATE_STRING_LENGTH];
     
-    /* Missing Code Here */
+    init_lister(argv[1], source_name, date);		# passes argv1 into init_lister
+    
+    
+    while (line_count < MAX_LINES_PER_PAGE)		# Main while loop for calling get_source_line
+    {
+    	get_source_line(argv[1], source_name, date)
+    	
+    	line_count++;					# Increments line count.
+    	
+    }
+    
     return 0;
 }
 
