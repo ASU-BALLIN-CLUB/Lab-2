@@ -27,7 +27,7 @@ FILE *init_lister(const char *name, char source_file_name[], char dte[])
     time_t timer;
     FILE *file;
     
-    /* Missing Code Here */
+    source_name = source_file_name[];
     return file;
 }
 
