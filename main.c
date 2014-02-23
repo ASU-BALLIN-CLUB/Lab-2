@@ -26,6 +26,8 @@ FILE *init_lister(const char *name, char source_file_name[], char dte[])
 {
     time_t timer;
     FILE *file;
+    std::fstream fs;
+    fs.open ("test.txt", std::fstream::in | std::fstream::out | std::fstream::app);
     
     source_name = source_file_name[];
     return file;
@@ -38,12 +40,13 @@ BOOLEAN get_source_line(FILE *src_file, char src_name[], char todays_date[])
     char source_buffer[MAX_SOURCE_LINE_LENGTH];
     static int line_number = 0;
     
+    
     if (fgets (source_buffer, MAX_SOURCE_LINE_LENGTH, src_file )!=NULL) //This is missing a condition
     {
 	int n;
 	n=sprintf(print_buffer, "%d."+source_buffer, line_number);
 	line_number++;
-	printline(print_buffer)
+	print_line(print_buffer, src_name[], todays_date[]);
         return (TRUE);
     }
     else
