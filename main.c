@@ -104,7 +104,7 @@ static void print_page_header(char source_name[], char date[])
 {
     static int page_number = 1;
     
-    printf("Page\t" + page_number + "file source" + date[]);
+    printf("Page\t" + "%i"page_number + "file source" + date[]);
     // Prints out header: Page, page number, file source, the current date.
 }
 
