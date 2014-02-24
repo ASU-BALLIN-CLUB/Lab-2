@@ -1,3 +1,5 @@
+// Group members: Sean Slamka, Shangxin (James) Wang, Aydin Balci
+
 #include <stdio.h>
 #include "common.h"
 
