@@ -102,9 +102,10 @@ void print_line(char line[], char source_name_to_print[], char date_to_print[])
 
 static void print_page_header(char source_name[], char date[])
 {
-    static int page_number = 0;
+    static int page_number = 1;
     
-    /* Missing Code Here */
+    printf("Page\t" + page_number + "file source" + date[]);
+    // Prints out header: Page, page number, file source, the current date.
 }
 
 
