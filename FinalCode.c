@@ -1,36 +1,45 @@
+// Group members: Sean Slamka, Shangxin (James) Wang, Aydin Balci
+
 #include <stdio.h>
 
 #include "common.h"
 
 
 int main (int argc, const char *argv[])
-{
+{	
     FILE *source_file;
     char source_name[MAX_FILE_NAME_LENGTH];
     char date[DATE_STRING_LENGTH];
     static int line_number = 1;
-	print_page_header(source_name, date);
+    
+    print_page_header(argv[1], date);
 
-	source_file = init_lister(argv[1], source_name, date);
+    source_file = init_lister(argv[1], source_name, date);
+    // passes argv1 into init_lister
+    
+    if( source_file == NULL )
+    {
+	return 1;
+    }
+    // if statement for the source file not containing anything.
+    
+    char source_buffer2[MAX_SOURCE_LINE_LENGTH];
+    // Instantiating the source buffer.
+    
+    while(fgets(source_buffer2,MAX_SOURCE_LINE_LENGTH,source_file) )
+    {
+	printf("%i", line_number);
+	printf(": ");
+        printf("%s",source_buffer2);
+        line_number++;
+    }
 
-	if( source_file == NULL )
-	{
-		return 1;
-	}
-	char source_buffer2[MAX_SOURCE_LINE_LENGTH];
-
-	while(fgets(source_buffer2,MAX_SOURCE_LINE_LENGTH,source_file) )
-	    {
-			printf("%i", line_number);
-			printf(": ");
-	        printf("%s",source_buffer2);
-	        line_number++;
-    	}
-
-fclose (source_file);
+    // The while loop for the main function, prints out all the information then increments the line number.
+    fclose (source_file);
+    // closes the file.
 
     return 0;
-}
+}   // end of main.
 
 FILE *init_lister(const char *name, char source_file_name[], char dte[])
 {
@@ -50,6 +59,7 @@ FILE *init_lister(const char *name, char source_file_name[], char dte[])
 
     return file;
 }
+// Init_lister file to print out the time/source file.
 
 
 BOOLEAN get_source_line(FILE *src_file, char src_name[], char todays_date[])
@@ -61,13 +71,7 @@ BOOLEAN get_source_line(FILE *src_file, char src_name[], char todays_date[])
 
 return (TRUE);
 }
-
-
-
-
-void print_line(char line[], char source_name_to_print[], char date_to_print[])
-{
-}// Half of Print_line function so far...
+// Boolean to see if the print/source buffer are correct.
 
 
 static void print_page_header(char source_name[], char date[])
@@ -76,6 +80,8 @@ static void print_page_header(char source_name[], char date[])
 
     printf("Page\t");
     printf("%i",page_number);
+    printf("\t");
+    printf("%s", source_name);
     printf("\t");
     // Prints out header: Page, page number, file source, the current date.
 }
